@@ -7,17 +7,17 @@ type SettingsProps = {
 };
 
 let anisetteServers = [
-  ["ani.sidestore.io", "SideStore (.io)"],
   ["ani.sidestore.app", "SideStore (.app)"],
   ["ani.sidestore.zip", "SideStore (.zip)"],
   ["ani.846969.xyz", "SideStore (.xyz)"],
-  ["anisette.seasi.dev", "SeasiDev"],
   ["ani.xu30.top", "SteX"],
+  ["ani.sidestore.io", "SideStore (.io)"],
+  ["anisette.seasi.dev", "SeasiDev"],
 ];
 export const Settings = ({ showHeading = true }: SettingsProps) => {
   const [anisetteServer, setAnisetteServer] = useStore<string>(
     "anisetteServer",
-    "ani.sidestore.io"
+    "ani.sidestore.app"
   );
   const [isCustom, setIsCustom] = useState<boolean>(
     anisetteServers.every(([value, _]) => value !== anisetteServer)

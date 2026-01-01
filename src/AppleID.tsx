@@ -26,7 +26,7 @@ export const AppleID = ({
   const [addAccountOpen, setAddAccountOpen] = useState<boolean>(false);
   const [anisetteServer] = useStore<string>(
     "anisetteServer",
-    "ani.sidestore.io"
+    "ani.sidestore.app"
   );
 
   useEffect(() => {
