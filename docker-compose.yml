@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  iloader:
+    build: .
+    container_name: iloader
+    ports:
+      - "8080:8080"  # noVNC web interface
+      - "5900:5900"  # VNC port (optional)
+    devices:
+      - /dev/bus/usb:/dev/bus/usb  # USB passthrough for iOS devices
+    privileged: true  # Required for USB access
+    restart: unless-stopped
+    environment:
+      - DISPLAY=:99
+    volumes:
+      - iloader-data:/root/.local/share/iloader
+      - /var/run/usbmuxd:/var/run/usbmuxd  # usbmuxd socket
+
+volumes:
+  iloader-data:
