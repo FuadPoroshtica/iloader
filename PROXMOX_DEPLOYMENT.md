@@ -4,7 +4,7 @@ Deploy iLoader to your Proxmox server and access it via `iloader.vemo.is`
 
 ## Quick Start
 
-### Automated Deployment
+### Automated LXC Deployment (Recommended)
 
 ```bash
 ./deploy-to-proxmox.sh
@@ -12,9 +12,19 @@ Deploy iLoader to your Proxmox server and access it via `iloader.vemo.is`
 
 This script will:
 1. Build iLoader for Linux
-2. Create Docker container with noVNC
-3. Deploy to Proxmox at 10.0.2.2
-4. Start the service on port 8080
+2. Create LXC container on Proxmox (ID: 200)
+3. Install all dependencies and iLoader
+4. Configure noVNC for web access
+5. Start the service on port 8080
+
+**Default Configuration:**
+- LXC ID: 200
+- LXC Name: iloader
+- Memory: 2GB
+- CPU Cores: 2
+- Password: iloader123 (change in script!)
+
+Edit the script to customize these settings.
 
 ### Manual Deployment
 
